@@ -26,15 +26,18 @@ def polet_pryamougolnik_1 ():
 def povorot_perve ():
 
     gradus=wrap.sprite.get_angle(pervey)
-    gradus-=90
+    gradus+=90
     wrap.sprite.set_angle(pervey,gradus)
-    wrap.world.set_title(str(gradus))
-    if gradus==180 or gradus==-180 or gradus==0:
-        bottom=wrap.sprite.get_bottom(pervey)
-        if bottom>700:
-            wrap.sprite.move_to(pervey,500,585)
+    bottom=wrap.sprite.get_bottom(pervey)
+    if bottom>695:
+        gradus-=90
+        wrap.sprite.set_angle(pervey, gradus)
 
 
+# сначала ми его поварачиваем  +90
+# проверяем боттом
+# проверяяем зошла ли он за граници экрана
+# если она зошла то тогда возращаем обратно
 
 
 # @wrap.on_mouse_down(wrap.BUTTON_RIGHT)
