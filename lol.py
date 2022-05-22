@@ -13,7 +13,7 @@ pervey=None
 
 def randon_kartinka():
     global pervey
-    what=random.randint(1,4)
+    what=random.randint(1,7)
     if what==1:
         pervey = wrap.sprite.add("daed",500,-200, "kvadrat_1")
     if what==2:
@@ -22,6 +22,19 @@ def randon_kartinka():
         pervey = wrap.sprite.add("daed", 500, -200, "kvadrat_3")
     if what==4:
         pervey = wrap.sprite.add("daed", 500, -200, "kvadrat_4")
+    if what==5:
+        pervey = wrap.sprite.add("daed", 500, -200, "kvadrat_5")
+    if what==6:
+        pervey = wrap.sprite.add("daed", 500, -200, "kvadrat_6")
+    if what==7:
+        pervey = wrap.sprite.add("daed", 500, -200, "kvadrat_7")
+
+
+
+
+
+
+
 
 
 @wrap.always()
@@ -36,10 +49,11 @@ def polet_pryamougolnik_1 ():
     if bottom<695 :
         wrap.sprite.move(pervey, 0, +50)
         bottom = wrap.sprite.get_bottom(pervey)
-    gradus = wrap.sprite.get_angle(pervey)
-    if  gradus==90 :
-        if bottom>700:
-            wrap.sprite.move_to(pervey,500,668)
+
+    if bottom>695:
+        wrap.sprite.move_bottom_to(pervey,695)
+        randon_kartinka()
+        print("лох")
 
 
 
