@@ -3,12 +3,12 @@ import random
 import wrap
 
 
-wrap.world.create_world(1000,700)
+wrap.world.create_world(1000 ,700)
 
 wrap.add_sprite_dir("vechaslavtop")
 
 pervey=None
-
+spisokperveh=[]
 # pervey = wrap.sprite.add("mario-1-small",500,500, "climb2")
 
 def randon_kartinka():
@@ -32,10 +32,13 @@ def randon_kartinka():
 
 
 
+    bottom=wrap.sprite.get_bottom(pervey)
+    if bottom>500 :
+        bottom=wrap.sprite.get_bottom(pervey)
 
-
-
-
+    if bottom>690  :
+        spisokperveh.append(pervey)
+    print(spisokperveh)
 
 @wrap.always()
 def polet_pryamougolnik_1 ():
@@ -45,6 +48,7 @@ def polet_pryamougolnik_1 ():
         randon_kartinka()
 
     bottom=wrap.sprite.get_bottom(pervey)
+    ses=wrap.sprite.is_collide_sprite(pervey,pervey)
 
     if bottom<695 :
         wrap.sprite.move(pervey, 0, +50)
@@ -54,8 +58,8 @@ def polet_pryamougolnik_1 ():
         wrap.sprite.move_bottom_to(pervey,695)
         randon_kartinka()
         print("лох")
-
-
+        spisokperveh.append(pervey)
+        print(spisokperveh)
 
 
 @wrap.on_mouse_down(wrap.BUTTON_LEFT )
