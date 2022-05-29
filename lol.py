@@ -48,11 +48,16 @@ def polet_pryamougolnik_1 ():
         randon_kartinka()
 
     bottom=wrap.sprite.get_bottom(pervey)
-    ses=wrap.sprite.is_collide_sprite(pervey,pervey)
 
-    if bottom<695 :
-        wrap.sprite.move(pervey, 0, +50)
-        bottom = wrap.sprite.get_bottom(pervey)
+    for  did in spisokperveh :
+        ses = wrap.sprite.is_collide_sprite(pervey,did)
+        if ses==True:
+            randon_kartinka()
+
+
+
+
+    wrap.sprite.move(pervey, 0, +25)
 
     if bottom>695:
         wrap.sprite.move_bottom_to(pervey,695)
